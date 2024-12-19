@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "planilha-de-financiamentos",
+  "private_key_id": "599fb30dbb7083b8a0c211e7d6c59722a2e20746",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDou6spqzp905dX\nGkPMwilwENeXwAibtWxr+1OWbJvCr1e55xUdhubtpJB8H0PaidTzBAJcghTHfpsH\nZbapnOmRFJ3Xr2NKixl6orOL1JZJKmAWYUlFW/2HctzzmlZ8O4UYeTLMq42EhC2C\nwmQhSa+BwCWuboteuOmGEhIdQP85jJ42sAeY0RduQeriPVJtgaINClBhRbis/Cx8\nK2MiArqBKxVLjQuO4AlPmtbjqr1NftdXqEPfbFc1XLwqQvkGv13H7DwWy4+0mEBJ\nGrOuD/jPjV0zZOyZAe1GCGhi+ayJDkCGTVCZ5rZFwtSvXjI6QX0dxT3oXoNtO3Tg\nydd4+ojDAgMBAAECggEADsw38ttPScbVXZVu8Cr8RYLcomp0Yaokba06QFtBgBx0\nAH7/6bO1JTEMesfmIZQX9SexGr6uoYycQNknxxsSAsaDzr35GzlC8ng74E0xDQ/j\nsiiXZxCVSzJzeA29KAME0GyMXVUfF2jsF99STIeJ4D8eZjvjIq+xMXQesLt8PuVh\n8rDMSbN7CFpm50v9qwxAEOPatTPezNc1tIAhknW7bWfIXNvFc206VaJLM+8xcqpJ\nZTyyaLczMB2BNaLCMyg6SMMAc5RjkUkevwyei7ZOvG4Iq/QUIiHFRYw5TvzLJqxa\nswKkZ5hCC1QqFB/9JKG4SZdhTHDCBRk+2K6zmOBIqQKBgQD37d2fjxbbdypZ+ukF\nAfK7p+Ac366pAhMAxyBpmIghuVGZ+DtsU6EBOmM7tfvolA86CUKqfl7cNTktC9Bv\nMvamPjQwYb5SDa3RXGHiwpVo4sVw0j29aZqiar0UP8Fsqd0x+m2qnqkfASLQ4NmU\nd5KALnZK2TbuMaaMNSO94P5dxQKBgQDwTypSQmKFc6fcfL70tJwKQ7/CRyE6gXEI\nF7e5yuN5Mc/pgCiAv1n0bqDLBbnN6eyxTUkNtjnH9ZdIZgVwlSfKlV/AGzpi9o4I\ncMjv3N3AmP9km9bCrYkeS++NsHPk+w1XFC1Wl7yJt197phbwKxH3BJXaMGM1R6sH\nZHkseu785wKBgQDOTPK+I22snsLx7pPZI97cAXu96u7GGUDAw/EXjOGx1ieti92+\nbPQrNm9+Lxb3V8Q30Z7UiaTbbbou3obJEMomWNpKa/rXAiThchLNgoaaqSALmhXf\nt7EBdvnwkICdr9asEKsSb0Vg1CwpTQAfx0NzP7YU4BwSJeRlBI7CICbo1QKBgH6C\nzt77f+6N0sNrEQS2yKdGv39B/yZT2vPNuLWhMFwvcyuUgr40/uCGFTSM0SKskiVN\ncLY9RvIUQw6kVxzMCWTHet8h9nz/HAsphT9x4XRxl5KZ0FgxD8zZYUYQrRLRcFZ1\nkuDRhTpjRWtNJypNImoPCe0SKEh2cH210W0vUv3lAoGBAOG26Dyu8+CFhVMmMHRC\nhTHyB6TYHs2x8Qt9Z1CJ438QkXMT0/U4IXnEkvQvLfzWu2IURe+aIfs6iBeKt9Wq\nfs/Gz1nqScnsvpPYtUtEFkp6Gj+1h3q3/VxwEVPBdyBzeLu6OT4BsCSl9FRZkVAh\n4pPjFwUx1QMR9Zh98FXx2TiH\n-----END PRIVATE KEY-----\n",
+  "client_email": "planilha-financiamento@planilha-de-financiamentos.iam.gserviceaccount.com",
+  "client_id": "117998024926100022941",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/planilha-financiamento%40planilha-de-financiamentos.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
