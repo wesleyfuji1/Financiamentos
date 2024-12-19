@@ -1,10 +1,22 @@
 import openpyxl
 from datetime import datetime
+import gspread
+from google.auth.transport.requests import Request
+from google.oauth2.service_account import Credentials
 
-# Carregar a planilha
-file_path = 'Financiamento (respostas).xlsx'
-workbook = openpyxl.load_workbook(file_path)
-sheet = workbook.active
+# Carregar a planilha pelo link
+# Definir o escopo de acesso (Google Sheets e Google Drive)
+SCOPES = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
+
+# Autenticar usando o arquivo JSON de credenciais
+creds = Credentials.from_service_account_file("/home/vendasfuji/PycharmProjects/PythonProject/FInanciamentos/planilha-de-financiamentos-599fb30dbb70.json", scopes = SCOPES)
+client = gspread.authorize(creds)
+
+# Abrir a planilha pelo nome ou pela URL
+sheet = client.open_by_key("1bkwswCcluXSQSicf5mYAtsE_KOGXCLWgX9eRjpB7APU").sheet1
+
+# Puxar os dados da planilha
+data = sheet.get_all_records()
 
 # Formatando a data
 def formatar_data(data):
@@ -37,39 +49,46 @@ def get_data_by_row(sheet, row_index):
     :param row_index: O índice da linha (começando de 2 para ignorar o cabeçalho).
     :return: Dicionário com os dados da linha.
     """
-    row = sheet[row_index]
+    # Obter os valores da linha
+    row = sheet.row_values(row_index)
+
+    # Garantir que a linha tenha 30 colunas (completar com None se necessário)
+    total_columns = 30  # Número total de colunas esperadas
+    row.extend([None] * (total_columns - len(row)))  # Completar com None
+
     ficha = {
         "DADOS PESSOAIS": {
-            "NOME": row[1].value,
-            "RG": int(row[2].value),
-            "SSP": row[3].value,
-            "DATA DE EXPEDIÇÃO": formatar_data(row[4].value),
-            "CPF": int(row[5].value),
-            "NASCIMENTO": formatar_data(row[6].value),
-            "NATURALIDADE": row[7].value,
-            "ESTADO CIVIL": row[8].value,
-            "NOME PAI": row[9].value,
-            "NOME MÃE": row[10].value,
-            "ENDEREÇO": row[13].value,
-            "N°": int(row[14].value),
-            "BAIRRO": row[15].value,
-            "CEP": row[17].value,
-            "CIDADE": row[18].value,
-            "ESTADO": row[19].value,
-            "FONE CELULAR": row[11].value,
-            "E-MAIL": row[12].value,
+            "NOME": row[1],
+            "RG": int(row[2]) if row[2] else None,
+            "SSP": row[3],
+            "DATA DE EXPEDIÇÃO": formatar_data(row[4]) if row[4] else None,
+            "CPF": int(row[5]) if row[5] else None,
+            "NASCIMENTO": formatar_data(row[6]) if row[6] else None,
+            "NATURALIDADE": row[7],
+            "ESTADO CIVIL": row[8],
+            "NOME PAI": row[9],
+            "NOME MÃE": row[10],
+            "ENDEREÇO": row[13],
+            "N°": int(row[14]) if row[14] else None,
+            "BAIRRO": row[15],
+            "CEP": row[17],
+            "CIDADE": row[18],
+            "ESTADO": row[19],
+            "FONE CELULAR": row[11],
+            "E-MAIL": row[12],
         },
         "DADOS PROFISSIONAIS": {
-            "NOME DA EMPRESA": row[21].value,
-            "ENDEREÇO": row[22].value,
-            "FONE": row[23].value,
-            "CARGO": row[24].value,
-            "RENDA": row[25].value,
+            "PROFISSÃO": row[20],
+            "NOME DA EMPRESA": row[21],
+            "ENDEREÇO": row[22],
+            "FONE": row[23],
+            "CARGO": row[24],
+            "RENDA": row[25],
         },
         "OUTRAS INFORMAÇÕES": {
-            "POSSUI CNH?": row[26].value,
-            "MODELO DA MOTO": row[27].value,
-            "ENTRADA": row[29].value,
+            "POSSUI CNH?": row[26],
+            "MODELO DA MOTO": row[27],
+            "ENTRADA": float(row[29]) if row[29] else 0.0,
         },
     }
     return ficha
@@ -78,7 +97,7 @@ def get_data_by_row(sheet, row_index):
 def extract_financing_data(sheet):
     financing_data = []
 
-    for row_index in range (2,3):  # Linha onde serão extraídos os dados (range entre a linha selecionada e a próxima).
+    for row_index in range (4, 5):  # Linha onde serão extraídos os dados (range entre a linha selecionada e a próxima).
         ficha = get_data_by_row(sheet, row_index)
         financing_data.append(ficha)
 
