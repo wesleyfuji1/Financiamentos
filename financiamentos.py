@@ -9,11 +9,11 @@ from google.oauth2.service_account import Credentials
 SCOPES = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
 
 # Autenticar usando o arquivo JSON de credenciais
-creds = Credentials.from_service_account_file("/home/vendasfuji/PycharmProjects/PythonProject/FInanciamentos/planilha-de-financiamentos-599fb30dbb70.json", scopes = SCOPES)
+creds = Credentials.from_service_account_file("lugar/onde/o-arquivo/esta.json", scopes = SCOPES)
 client = gspread.authorize(creds)
 
 # Abrir a planilha pelo nome ou pela URL
-sheet = client.open_by_key("1bkwswCcluXSQSicf5mYAtsE_KOGXCLWgX9eRjpB7APU").sheet1
+sheet = client.open_by_key("ID-da-planilha").sheet1
 
 # Puxar os dados da planilha
 data = sheet.get_all_records()
@@ -22,7 +22,7 @@ data = sheet.get_all_records()
 def formatar_data(data):
     if isinstance(data, datetime):
         return data.strftime('%d/%m/%Y')
-    elif isinstance(data, float) or isinstance(data, int):  # Caso Excel armazene data como número
+    elif isinstance(data, float) or isinstance(data, int) or isinstance(data, str):  # Caso Excel armazene data como número
         data_str = str(int(data))
         if len(data_str) == 8:
             try:
@@ -97,7 +97,7 @@ def get_data_by_row(sheet, row_index):
 def extract_financing_data(sheet):
     financing_data = []
 
-    for row_index in range (4, 5):  # Linha onde serão extraídos os dados (range entre a linha selecionada e a próxima).
+    for row_index in range (2, 3):  # Linha onde serão extraídos os dados (range entre a linha selecionada e a próxima).
         ficha = get_data_by_row(sheet, row_index)
         financing_data.append(ficha)
 
