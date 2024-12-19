@@ -9,3 +9,9 @@ Para carregar a planilha, usamos a integração com "https://console.cloud.googl
 Além disso, criamos uma credencial e uma chave para acessar a API.
 
 Arquivar o arquivo .json junto com o arquivo Python para melhor execução do código.
+
+Compartilhar a planilha com o e-mail gerado na criação da credencial.
+
+A ID da planilha está entre d/ e /edit.
+
+pip install gspread google-auth google-auth-oauthlib google-auth-httplib2
