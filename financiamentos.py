@@ -23,7 +23,7 @@ def formatar_data(data):
     if isinstance(data, datetime):
         return data.strftime('%d/%m/%Y')
     elif isinstance(data, float) or isinstance(data, int) or isinstance(data, str):  # Caso Excel armazene data como número
-        data_str = str(int(data))
+        data_str = str(data)
         if len(data_str) == 8:
             try:
                 dia = int(data_str[:2])
@@ -59,7 +59,7 @@ def get_data_by_row(sheet, row_index):
     ficha = {
         "DADOS PESSOAIS": {
             "NOME": row[1],
-            "RG": int(row[2]) if row[2] else "-",
+            "RG": str(row[2]) if row[2] else "-",
             "SSP": row[3],
             "DATA DE EXPEDIÇÃO": formatar_data(row[4]) if row[4] else "-",
             "CPF": str(row[5]) if row[5] else "-",
@@ -109,7 +109,8 @@ formatted_data = extract_financing_data(sheet)
 
 # Exibir os dados extraídos no formato solicitado
 for ficha in formatted_data:
-    print("FICHA PARA FINANCIAMENTO")
+    print("WESLEY") 
+    print("\nFICHA PARA FINANCIAMENTO")
     print("\nDADOS PESSOAIS")
     for key, value in ficha["DADOS PESSOAIS"].items():
         print(f"- {key}: {value}")
