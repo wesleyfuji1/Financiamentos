@@ -89,7 +89,7 @@ def get_data_by_row(sheet, row_index):
         "OUTRAS INFORMAÇÕES": {
             "POSSUI CNH?": row[26],
             "MODELO DA MOTO": row[27],
-            "ENTRADA": float(row[29]) if row[29] else 0.0,
+            "ENTRADA": float(row[29]) if row[29] else "Menor possível",
         },
     }
     return ficha
